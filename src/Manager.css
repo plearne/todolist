@@ -1,5 +1,73 @@
 .manager {
-  width: 260px;
+  min-width: 260px;
   height: 100vh;
-  
+}
+.manager .row {
+  display: flex;
+  align-items: center;
+  padding-left: 1em;
+  height: 3em;
+  cursor: pointer;
+}
+.manager .row:hover {
+  background: #ccc;
+}
+.user-text {
+  margin-right: 1em;
+}
+.user-name {
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  font-size: 12px;
+  background: rgba(149,189,199,1);
+  color: #fff;
+  margin-right: 1em;
+  text-align: center;
+  line-height: 2em;
+}
+.manager>.search>input {
+  width: 100%;
+	line-height: 1.8;
+	margin-bottom: 1em;
+	font-size: 16px;
+	padding: 8px 1em;
+	outline: none;
+  background: rgba(149,189,199,1);
+	border: none;
+	transition: .3s all ease;
+}
+.manager>.search>input:hover {
+	background: rgba(213,236,242,1);
+}
+.manager>.row.active {
+  background: #eee;
+}
+.manager>.search {
+  position: relative;
+}
+.icon-sousuo-sousuo {
+  position: absolute;
+  color: #fff;
+  top: .7em;
+  font-size: 16px;
+  right: 1em;
+}
+.inbox {
+  line-height: 3em;
+  text-decoration: none;
+}
+.icon-youxiang {
+  line-height: 3em;
+  color: blue;
+  font-size: 20px !important;
+}
+.icon-chevron-copy-copy-copy {
+  font-size: 6px !important;
+}
+.row .count {
+  flex: 1;
+  text-align: right;
+  padding-right: 1em;
 }

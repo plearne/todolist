@@ -14,14 +14,15 @@ class App extends Component {
     this.state = {
       user: getCurrentUser() || '',
       newTodo: "",
-      todoList:[]
+      todoList:[],
+      show: 'todosDoing'
     }
   }
   componentWillMount(){
     this.fetchData.call(this)
   }
   render() {
-     let todos = this.state.todoList
+     let todosDoing = this.state.todoList
          .filter((item)=>!item.deleted)
          .map((item,index)=>{
       return (
@@ -31,11 +32,34 @@ class App extends Component {
         </li>
       )
     })
-
+    let todosDelete = this.state.todoList
+        .filter((item) => item.deleted)
+        .map((item,index) => {
+          return (
+            <li key={index}>
+              <TodoItem todo={item} onToggle={this.toggle.bind(this)}
+              onDelete={this.delete.bind(this)} />
+            </li>
+          )
+        })
+    let todosDone = this.state.todoList
+        .filter((item) => {return item.status === 'completed'})
+        .map((item,index) => {
+          return (
+            <li key={index}>
+              <TodoItem todo={item} onToggle={this.toggle.bind(this)}
+              onDelete={this.delete.bind(this)} />
+            </li>
+          )
+        })
     return (
       <div className="App">
         <div className="left">
-          <Manager />
+          <Manager user={this.state.user}
+            onShowTodosDone={this.onShowTodosDone.bind(this)}
+            onShowTodosDelete={this.onShowTodosDelete.bind(this)}
+            onShowUnderTodos={this.onShowUnderTodos.bind(this)}
+            todos={this.state.todoList} />
         </div>
         <div className="right">
           <h1>{this.state.user||'我'}的待办
@@ -47,7 +71,19 @@ class App extends Component {
               onSubmit={this.addTodo.bind(this)} />
           </div>
           <ol className="todoList">
-            {todos}
+            {(() => {
+              switch(this.state.show){
+              case 'todosDone': 
+                return todosDone
+                break
+              case 'todosDelete':
+                return todosDelete
+                break
+              default: 
+                return todosDoing
+                break
+            }
+            })()}
           </ol>
           {this.state.user ? 
             null : 
@@ -94,7 +130,21 @@ class App extends Component {
     stateCopy.todoList = []
     this.setState(stateCopy)
   }
-
+  onShowTodosDelete(){
+    let stateCopy = jsonDeepCopy.call(this);
+    stateCopy.show = 'todosDelete';
+    this.setState(stateCopy)
+  }
+  onShowUnderTodos(){
+    let stateCopy = jsonDeepCopy.call(this);
+    stateCopy.show = 'todosDoing';
+    this.setState(stateCopy)
+  }
+  onShowTodosDone(){
+    let stateCopy = jsonDeepCopy.call(this);
+    stateCopy.show = 'todosDone';
+    this.setState(stateCopy)
+  }
   delete(event,todo){
     let index = this.state.todoList.indexOf(todo)
     let stateCopy = jsonDeepCopy.call(this)

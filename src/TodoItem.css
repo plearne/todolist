@@ -1,5 +1,7 @@
 .TodoItem {
-	
+	background: #fff;
+	border-radius: 2px;
+	margin: .2em 0;
 	display: flex;
 	height: 3em;
 	align-items: center;
@@ -10,7 +12,7 @@
 	margin-left: 1em;
 }
 .TodoItem>input:checked~label {
-	color: red;
+	color: #8c8c8c;
 	text-decoration: line-through;
 	font-weight: lighter;
 	opacity: .5;
@@ -20,18 +22,14 @@
 	padding: .5em;
 	flex: 1;
 }
-.TodoItem>button {
-	color: #ccc;
-	border: 1px solid #ccc;
-	outline:none;
-	border-radius: 3px;
-	background: rgba(0,0,0,0);
-	font-size: 1em;
-	padding: .2em;
+.TodoItem:hover .icon-close {
+	display: block;
+}
+.TodoItem>.icon-close {
+	display: none;
+	cursor: pointer;
 	margin-right: 1em;
 }
-.TodoItem>button:hover {
-	background: white;
-	color: #111;
-	cursor: pointer;
+.icon-close:hover {
+	color: red;
 }

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './TodoItem.css'
+import './iconfont/iconfont.css'
 export default class TodoItem extends Component {
 	render(){
 		return (
@@ -7,7 +8,7 @@ export default class TodoItem extends Component {
 				<input type="checkbox"  checked={this.props.todo.status === 'completed'}
 				onChange={this.toggle.bind(this)} /> 
 				<label >{this.props.todo.title}</label>
-				<button onClick={this.delete.bind(this)} >删除</button>
+				<i className="iconfont icon-close" onClick={this.delete.bind(this)} ></i>
 			</div>
 		)
 	}

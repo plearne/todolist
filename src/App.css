@@ -4,7 +4,6 @@
   font-family: Arial;
   border-radius: 4px;
   background: #fff;
-  padding: 0 1em;
   display: flex;
   min-height: 100vh;
   min-width: 57em;
@@ -13,7 +12,11 @@
   flex: 1;
 }
 .right {
+  box-sizing: border-box;
+  padding: 0 2em;
   flex: 4;
+  background: url(http://i4.buimg.com/588926/3c86187c147e715f.jpg) no-repeat center center;
+  background-size: cover;
 }
 .App>h1 {
   text-align: center;

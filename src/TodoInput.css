@@ -3,18 +3,17 @@
 	line-height: 1.8;
 	margin-bottom: 1em;
 	font-size: 16px;
-	padding: 8px .2em;
+	padding: 8px 1em;
 	outline: none;
-	color: white;
-	background: rgba(0,0,0,0.2);
-	border: 1px solid #ccc;
+	background: transparent;
+	border: 2px solid #fff;
 	transition: .3s all ease;
 }
 ::-webkit-input-placeholder {
 	font-family: arial;
 	font-weight: lighter;
-	color: #eee;
+	color: #ccc;
 }
 .TodoInput:hover {
-	background: rgba(0,0,0,0.3);
+	background: rgba(250,250,250,0.8);
 }
