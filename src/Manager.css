@@ -10,7 +10,7 @@
   cursor: pointer;
 }
 .manager .row:hover {
-  background: #ccc;
+  background: #eee;
 }
 .user-text {
   margin-right: 1em;
@@ -57,11 +57,6 @@
 .inbox {
   line-height: 3em;
   text-decoration: none;
-}
-.icon-youxiang {
-  line-height: 3em;
-  color: blue;
-  font-size: 20px !important;
 }
 .icon-chevron-copy-copy-copy {
   font-size: 6px !important;

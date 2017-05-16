@@ -45,17 +45,17 @@ export default class Manager extends Component {
           </div>
         </div>
         <div className="row" onClick={this.props.onShowUnderTodos.bind(null)}>
-          <i className="iconfont icon-youxiang"></i>
+          <i className="iconfont icon-busy"></i>
           <span className="inbox row"> 进行中</span>
           <div className="count">{todosDoing.length}</div>
         </div>
         <div className="row" onClick={this.props.onShowTodosDone.bind(this)}>
-          <i className="iconfont icon-youxiang"></i>
+          <i className="iconfont icon-complete"></i>
           <span className="inbox row"> 已完成</span>
           <div className="count">{todosDone.length}</div>
         </div>
         <div className="row" onClick={this.props.onShowTodosDelete.bind(null)}>
-          <i className="iconfont icon-youxiang"></i>
+          <i className="iconfont icon-wodedangan"></i>
           <span className="inbox row"> 归档</span>
           <div className="count">{todosDelete.length}</div>
         </div>
