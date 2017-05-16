@@ -6,6 +6,7 @@ import 'normalize.css'
 import './reset.css'
 import UserDialog from './UserDialog'
 import AV, {getCurrentUser, signOut, jsonDeepCopy} from './leanCloud'
+import Manager from './Manager'
 
 class App extends Component {
   constructor(props){
@@ -33,23 +34,29 @@ class App extends Component {
 
     return (
       <div className="App">
-        <h1>{this.state.user||'我'}的待办
-          {this.state.user ? <button onClick={this.signOut.bind(this)}>登出</button> : null }</h1>
-        <div className="inputWrapper">
-          <TodoInput content={this.state.newTodo}
-            
-            onChange={this.changeTitle.bind(this)}
-            onSubmit={this.addTodo.bind(this)} />
+        <div className="left">
+          <Manager />
         </div>
-        <ol className="todoList">
-          {todos}
-        </ol>
-        {this.state.user ? 
-          null : 
-          <UserDialog onSignUp={this.onSignUpOrSignIn.bind(this,'signUp')}
-          onSignIn={this.onSignUpOrSignIn.bind(this,'signIn')}
-          />}
-      </div>
+        <div className="right">
+          <h1>{this.state.user||'我'}的待办
+            {this.state.user ? <button onClick={this.signOut.bind(this)}>登出</button> : null }</h1>
+          <div className="inputWrapper">
+            <TodoInput content={this.state.newTodo}
+              
+              onChange={this.changeTitle.bind(this)}
+              onSubmit={this.addTodo.bind(this)} />
+          </div>
+          <ol className="todoList">
+            {todos}
+          </ol>
+          {this.state.user ? 
+            null : 
+            <UserDialog onSignUp={this.onSignUpOrSignIn.bind(this,'signUp')}
+            onSignIn={this.onSignUpOrSignIn.bind(this,'signIn')}
+            />}
+        </div>
+        </div>
+
     );
   }
   onSignUpOrSignIn(key,user){
