@@ -18,10 +18,13 @@ export default class Manager extends Component {
         </div>
       </div>
     )
-    let onTodos = this.props.todos.filter(item => {
-      return item.deleted === false
+    let todosDoing = this.props.todos.filter(item => {
+      return item.deleted === false && item.status !== 'completed'
     })
     let todosDone = this.props.todos.filter(item => {
+      return item.status === 'completed'
+    })
+    let todosDelete = this.props.todos.filter(item => {
       return item.deleted === true
     })
     return (
@@ -44,17 +47,17 @@ export default class Manager extends Component {
         <div className="row" onClick={this.props.onShowUnderTodos.bind(null)}>
           <i className="iconfont icon-youxiang"></i>
           <span className="inbox row"> 进行中</span>
-          <div className="count">{onTodos.length}</div>
+          <div className="count">{todosDoing.length}</div>
         </div>
         <div className="row" onClick={this.props.onShowTodosDone.bind(this)}>
           <i className="iconfont icon-youxiang"></i>
           <span className="inbox row"> 已完成</span>
-          <div className="count">{onTodos.length}</div>
+          <div className="count">{todosDone.length}</div>
         </div>
         <div className="row" onClick={this.props.onShowTodosDelete.bind(null)}>
           <i className="iconfont icon-youxiang"></i>
           <span className="inbox row"> 归档</span>
-          <div className="count">{todosDone.length}</div>
+          <div className="count">{todosDelete.length}</div>
         </div>
 
       </div>

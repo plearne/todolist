@@ -23,7 +23,7 @@ class App extends Component {
   }
   render() {
      let todosDoing = this.state.todoList
-         .filter((item)=>!item.deleted)
+         .filter((item)=>{return !item.deleted && item.status !== 'completed'})
          .map((item,index)=>{
       return (
         <li key={index} >
