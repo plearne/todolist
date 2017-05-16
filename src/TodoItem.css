@@ -1,0 +1,37 @@
+.TodoItem {
+	
+	display: flex;
+	height: 3em;
+	align-items: center;
+}
+.TodoItem>input {
+	width: 2em;
+	height: 2em;
+	margin-left: 1em;
+}
+.TodoItem>input:checked~label {
+	color: red;
+	text-decoration: line-through;
+	font-weight: lighter;
+	opacity: .5;
+}
+.TodoItem>label {
+	font-size: 1.5em;
+	padding: .5em;
+	flex: 1;
+}
+.TodoItem>button {
+	color: #ccc;
+	border: 1px solid #ccc;
+	outline:none;
+	border-radius: 3px;
+	background: rgba(0,0,0,0);
+	font-size: 1em;
+	padding: .2em;
+	margin-right: 1em;
+}
+.TodoItem>button:hover {
+	background: white;
+	color: #111;
+	cursor: pointer;
+}

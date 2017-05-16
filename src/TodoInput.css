@@ -1,0 +1,20 @@
+.TodoInput {
+	width: 100%;
+	line-height: 1.8;
+	margin-bottom: 1em;
+	font-size: 16px;
+	padding: 8px .2em;
+	outline: none;
+	color: white;
+	background: rgba(0,0,0,0.2);
+	border: 1px solid #ccc;
+	transition: .3s all ease;
+}
+::-webkit-input-placeholder {
+	font-family: arial;
+	font-weight: lighter;
+	color: #eee;
+}
+.TodoInput:hover {
+	background: rgba(0,0,0,0.3);
+}

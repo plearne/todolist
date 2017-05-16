@@ -1,0 +1,94 @@
+.UserDialog-Wrapper{
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: url(http://i2.muimg.com/588926/f9ae73b848f26e75.jpg) no-repeat center center;
+	background-size: cover;
+
+}
+
+.UserDialog:before{
+	content: "Welcome";
+	display: block;
+	padding: .5em 0 .2em 0;
+	text-align: center;
+	font-size: 80px;
+}
+.UserDialog{
+	border: 1px solid #aaa;
+	border-radius: 4px;
+	min-width: 40em;
+	min-height: 27em;
+	font-size: 15px;
+	background: transparent;
+	box-shadow: 0 0 1em hsla(0,0%,0%,.1);
+}
+.UserDialog>.signUpOrSignIn {
+	
+}
+.UserDialog nav:first-child {
+	padding: 1em;
+	margin-left: -2em;
+}
+.UserDialog nav {
+	display: flex;
+	justify-content: center;
+}
+.UserDialog nav:first-child label {
+	margin-left: 2em;
+	cursor: pointer;
+}
+.UserDialog nav label input {
+	padding: .3em 0;
+	margin-right: .5em;
+}
+
+.UserDialog .panes {
+	padding: 0 1em 1em;
+}
+.UserDialog form>.row {
+	display: flex;
+	padding: 0.7em 0;
+}
+.forgotPassword h3 {
+	margin-top: 1em;
+	text-align: center;
+}
+.UserDialog form .row>label:first-child {
+	padding: 0.2em 0;
+	width: 4em;
+}
+.UserDialog form .row>input {
+	padding: 0.3em;
+	outline: none;
+	border-style: ridge;
+	background: transparent;
+}
+.UserDialog form .row>input:last-child {
+	width: 80%;
+}
+.UserDialog form>.row.actions {
+	justify-content: center;
+}
+.UserDialog form>.row.actions button {
+	border: 1px solid white;;
+	border-radius: 2px;
+	padding: .2em 5em;
+	color: white;
+	background: transparent;
+}
+.UserDialog form>.row.actions button:hover {
+	color: white;
+	border: 1px solid #6491f5;
+	background: #6491f5;
+	cursor: pointer;
+}
+.UserDialog form>.row a {
+	font-size: 12px;
+}
