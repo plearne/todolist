@@ -11,8 +11,15 @@
 }
 .bg-container>.bg-panel {
   position: relative;
+  top: -200px;
+  opacity: 0;
   width: 370px;
   height: 500px;
+  transition: .5s all ease;
+}
+.bg-container>.bg-panel.show {
+  top: 0;
+  opacity: 1;
 }
 .bg-container>.bg-panel>header {
   height: 70px;
