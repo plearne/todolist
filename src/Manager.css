@@ -66,3 +66,28 @@
   text-align: right;
   padding-right: 1em;
 }
+.user.row {
+  position: relative;
+}
+.user.row>.user-set {
+  position: absolute;
+  left: 1em;
+  top: 3em;
+  width: 90%;
+  padding: .5em;
+  background: #fff;
+  box-shadow: 0 0 3px rgba(0,0,0,.2);
+  transition: .2s all ease;
+}
+.user.row>.user-set>.row {
+  padding: 2px 5px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.user.row>.user-set hr {
+  border: .5px solid #efefef;
+}
+.user.row>.user-set>.logout:hover {
+  background: #95bdc7;
+  color: white;
+}

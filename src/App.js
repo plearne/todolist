@@ -56,14 +56,14 @@ class App extends Component {
       <div className="App">
         <div className="left">
           <Manager user={this.state.user}
+            onLogout={this.signOut.bind(this)}
             onShowTodosDone={this.onShowTodosDone.bind(this)}
             onShowTodosDelete={this.onShowTodosDelete.bind(this)}
             onShowUnderTodos={this.onShowUnderTodos.bind(this)}
             todos={this.state.todoList} />
         </div>
         <div className="right">
-          <h1>{this.state.user||'我'}的待办
-            {this.state.user ? <button onClick={this.signOut.bind(this)}>登出</button> : null }</h1>
+          <h1>{this.state.user}的待办</h1>
           <div className="inputWrapper">
             <TodoInput content={this.state.newTodo}
               
@@ -73,15 +73,9 @@ class App extends Component {
           <ol className="todoList">
             {(() => {
               switch(this.state.show){
-              case 'todosDone': 
-                return todosDone
-                break
-              case 'todosDelete':
-                return todosDelete
-                break
-              default: 
-                return todosDoing
-                break
+                case 'todosDone': return todosDone;             
+                case 'todosDelete': return todosDelete;                      
+                default: return todosDoing;               
             }
             })()}
           </ol>

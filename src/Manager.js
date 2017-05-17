@@ -12,8 +12,24 @@ export default class Manager extends Component {
   }
   render(){
     let userAccount = (
-      <div className="user-account">
-        <div className="row logout">
+      <div className="user-set">
+        <div className="row">
+          立即同步
+        </div>
+        <div className="row">
+          账号设置
+        </div>
+        <div className="row">
+          更换背景
+        </div>
+        <div className="row">
+          查看新增功能
+        </div>
+        <div className="row">
+          告诉你的好友
+        </div>
+        <hr/>
+        <div className="row logout" onClick={this.props.onLogout.bind(null)} >
           登出
         </div>
       </div>
@@ -34,17 +50,18 @@ export default class Manager extends Component {
             onChange={this.onChange.bind(this)} />
           <i className="iconfont icon-sousuo-sousuo"></i>
         </nav>
-        <div className="user row" onClick={null}>
+        <div className="user row" onClick={this.showUserSet.bind(this)}
+              onMouseLeave={this.onMouseLeave.bind(this)} >
           <div className="user-name">{this.props.user.substr(0,1).toUpperCase()}</div>
           <div className="user-text">{this.props.user}</div>
           <div className="user-account">
             <div className="iconfont icon-chevron-copy-copy-copy"></div>
-            {this.state.showUserAccount === true ?
+          </div>
+          {this.state.showUserAccount === true ?
             userAccount :
             null }
-          </div>
         </div>
-        <div className="row" onClick={this.props.onShowUnderTodos.bind(null)}>
+        <div className="row" onClick={this.props.onShowUnderTodos.bind(null)} >
           <i className="iconfont icon-busy"></i>
           <span className="inbox row"> 进行中</span>
           <div className="count">{todosDoing.length}</div>
@@ -67,5 +84,15 @@ export default class Manager extends Component {
     let stateCopy = jsonDeepCopy.call(this);
     stateCopy.search = e.target.value;
     this.setState(stateCopy)
+  }
+  showUserSet(){
+    let stateCopy = jsonDeepCopy.call(this);
+    stateCopy.showUserAccount = true;
+    this.setState(stateCopy);
+  }
+  onMouseLeave(){
+    let stateCopy = jsonDeepCopy.call(this);
+    stateCopy.showUserAccount = false;
+    this.setState(stateCopy);
   }
 }
