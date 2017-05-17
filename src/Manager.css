@@ -77,7 +77,6 @@
   padding: .5em;
   background: #fff;
   box-shadow: 0 0 3px rgba(0,0,0,.2);
-  transition: .2s all ease;
 }
 .user.row>.user-set>.row {
   padding: 2px 5px;
@@ -86,8 +85,4 @@
 }
 .user.row>.user-set hr {
   border: .5px solid #efefef;
-}
-.user.row>.user-set>.logout:hover {
-  background: #95bdc7;
-  color: white;
 }

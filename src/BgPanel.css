@@ -1,0 +1,55 @@
+.bg-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,.5);
+}
+.bg-container>.bg-panel {
+  position: relative;
+  width: 370px;
+  height: 500px;
+}
+.bg-container>.bg-panel>header {
+  height: 70px;
+  text-align: center;
+  font-size: 30px;
+  line-height: 70px;
+  border-radius: 5px 5px 0 0 ;
+  background: #eee;
+}
+.bg-container>.bg-panel>.pics {
+  height: 360px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  overflow: auto;
+  align-content: center;
+  background: #ccc;
+}
+.bg-container>.bg-panel>.pics .pic {
+  width: 70px;
+  height: 70px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  margin: 5px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.bg-container>.bg-panel>footer {
+  height: 70px;
+  border-radius: 0 0 5px 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #eee;
+}
+.bg-container button {
+  font-size: 20px;
+  padding: 2px 6px;
+  outline: none;
+}

@@ -6,7 +6,8 @@ import 'normalize.css'
 import './reset.css'
 import UserDialog from './UserDialog'
 import AV, {getCurrentUser, signOut, jsonDeepCopy} from './leanCloud'
-import Manager from './Manager'
+import Manager from './Manager';
+import BgPanel from './BgPanel';
 
 class App extends Component {
   constructor(props){
@@ -15,7 +16,9 @@ class App extends Component {
       user: getCurrentUser() || '',
       newTodo: "",
       todoList:[],
-      show: 'todosDoing'
+      show: 'todosDoing',
+      showBgPanel: false,
+      bgImg: 'http://i4.buimg.com/588926/3c86187c147e715f.jpg'
     }
   }
   componentWillMount(){
@@ -56,13 +59,14 @@ class App extends Component {
       <div className="App">
         <div className="left">
           <Manager user={this.state.user}
+            showBgPanel={this.showBgPanel.bind(this)} 
             onLogout={this.signOut.bind(this)}
             onShowTodosDone={this.onShowTodosDone.bind(this)}
             onShowTodosDelete={this.onShowTodosDelete.bind(this)}
             onShowUnderTodos={this.onShowUnderTodos.bind(this)}
             todos={this.state.todoList} />
         </div>
-        <div className="right">
+        <div className="right" style={{backgroundImage: 'url(' + this.state.bgImg + ')'}}>
           <h1>{this.state.user}的待办</h1>
           <div className="inputWrapper">
             <TodoInput content={this.state.newTodo}
@@ -85,7 +89,11 @@ class App extends Component {
             onSignIn={this.onSignUpOrSignIn.bind(this,'signIn')}
             />}
         </div>
-        </div>
+        {this.state.showBgPanel ? 
+          <BgPanel onClick={this.hideBgPanel.bind(this)}
+              changeBg={this.changeBg.bind(this)} /> :
+          null}
+      </div>
 
     );
   }
@@ -182,6 +190,21 @@ class App extends Component {
     }, function(error){
       console.log(error)
     })
+  }
+  showBgPanel(){
+    let stateCopy = jsonDeepCopy.call(this);
+    stateCopy.showBgPanel = true;
+    this.setState(stateCopy)
+  }
+  hideBgPanel(){
+    let stateCopy = jsonDeepCopy.call(this);
+    stateCopy.showBgPanel = false;
+    this.setState(stateCopy)
+  }
+  changeBg(url){
+    let stateCopy = jsonDeepCopy.call(this);
+    stateCopy.bgImg = url;
+    this.setState(stateCopy);
   }
 
 }

@@ -19,7 +19,7 @@ export default class Manager extends Component {
         <div className="row">
           账号设置
         </div>
-        <div className="row">
+        <div className="row" onClick={this.props.showBgPanel.bind(null)}>
           更换背景
         </div>
         <div className="row">
